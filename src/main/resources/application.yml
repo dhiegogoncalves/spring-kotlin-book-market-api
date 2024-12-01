@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: book-market
+  datasource:
+    url: jdbc:postgresql://localhost:5432/${POSTGRES_DB:bookmarket_db}
+    username: ${POSTGRES_USER:bookmarket_user}
+    password: ${POSTGRES_PASSWORD:bookmarket_pass}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 2
+      idle-timeout: 10000
+      max-lifetime: 1800000
+      connection-timeout: 20000
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+  flyway:
+    enabled: true
